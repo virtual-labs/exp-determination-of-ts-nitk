@@ -16,13 +16,13 @@ var dataset=[[0.36,0.388,0.02,0.0172],
 			 [0.38216,0.39278,0.0062,0.009],
 			 [1.62188,1.63982,0.00574,0.0274],
 			 [1.62188,1.63782,0.0074,0.0054],
-			 [0.456,0.444,0.028,0.005]];
+			 [0.444,0.456,0.028,0.005]];
 
 //to generate random numbers
 var p=Math.floor(Math.random()*(8));
 
 	//tss calculation
-	var data1=(wep + dataset[p][0]).toFixed(4);
+	var data1=(wep + dataset[p][0]).toFixed(4); 
 	var data2=(wep + dataset[p][1]).toFixed(4);
 	var tss=parseInt((((data2-data1)*1000)/samp)*1000);
 	//tds calculation
@@ -41,10 +41,10 @@ var questions=["At what temperature filter paper is</br> allowed to dry in hot a
 			   "Filter paper with solids is ignited in a</br> muffle furnace at ______ &deg;C temperature.",
 			   "Dessicator is used to prevent </br>the sample from external moisture?",
 			   "The TDS present in water are one </br>of the leading causes of turbidity</br> and sediments in drinking water?"];
-var options2=[["101","102","103","104"],//103
+var options2=[["101","103","105","107"],//105
 			  ["600","601","602","603"],//600
 			  ["True","False"],//true
-			  ["True","False"]];//true
+			  ["True","False"]];//False
 
 function validateAnswer(qn,ans,left,top)
 {
@@ -522,7 +522,7 @@ function magic()
 																								$("#"+tn+"-12").css({"visibility":"hidden"});
 																								$("#"+tn+"-1").css({"visibility":"visible","position":"absolute","left":"410px","top":"410px"});
 																								//document.getElementById("nextButton").style.visibility="visible";
-																								validateAnswer(3,0,"50px","150px");
+																								validateAnswer(3,1,"50px","150px");
 																							});
 																						});
 																					});
@@ -913,7 +913,6 @@ function magic()
 		$("#"+tn+"-13").css({"visibility":"hidden"});
 		$("#"+tn+"-14").css({"visibility":"hidden"});
 		$("#incDoor6-1").css({"visibility":"hidden"});
-		$("#p6-2").css({"visibility":"hidden"});
 		$("#"+tn+"-5").css({"visibility":"hidden"});
 		$("#"+tn+"-1a").css({"visibility":"hidden"});
 		$("#"+tn+"-11a").css({"visibility":"hidden"});
@@ -921,7 +920,6 @@ function magic()
 		$("#"+tn+"-13a").css({"visibility":"hidden"});
 		$("#"+tn+"-14a").css({"visibility":"hidden"});
 		$("#incDoor6-2").css({"visibility":"hidden"});
-		$("#p6-3").css({"visibility":"hidden"});
 		$("#7-1").fadeIn(2000);
 		setTimeout(function()
 		{
@@ -1916,12 +1914,12 @@ function placeinoven()
 									document.getElementById("arrow1").style.transform = "rotate(270deg)";
 									document.getElementById(tn+"-13").onclick=function()
 									{
-										if(temp<104)
+										if(temp<106)
 										{
-										temp++;
-										document.getElementById("5-12").innerHTML="&nbsp;"+temp;
+											temp++;
+											document.getElementById("5-12").innerHTML="&nbsp;"+temp;
 										}
-										if(temp>=103)
+										if(temp>=105)
 										{
 											myStopFunction();
 											document.getElementById(tn+"-13").onclick="";
@@ -1950,33 +1948,29 @@ function placeBeakerinOven()
 		$("#"+tn+"-13").css({"visibility":"visible"});
 		$("#"+tn+"-14").css({"visibility":"visible"});
 		$("#incDoor6-1").css({"visibility":"visible"});
-		$("#p6-2").css({"visibility":"visible"});
-		
-		$("#"+tn+"-1a").css({"visibility":"visible"});
-		$("#"+tn+"-11a").css({"visibility":"visible"});
+	
+		$("#"+tn+"-11").css({"visibility":"visible"});
 		$("#"+tn+"-12a").css({"visibility":"visible"});
-		$("#"+tn+"-13a").css({"visibility":"visible"});
 		$("#"+tn+"-14a").css({"visibility":"visible"});
-		$("#incDoor6-2").css({"visibility":"visible"});
-		$("#p6-3").css({"visibility":"visible"});
+		document.getElementById("6-pd").style.visibility="visible";
 	setTimeout(function()
 	{	
 		setTimeout(function()
 		{
 		myInt = setInterval(function(){ animatearrow(); }, 500);
-		document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:350px; top:235px; height: 30px; z-index: 10;";
+		document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:100px; top:235px; height: 30px; z-index: 10;";
 		document.getElementById("arrow1").style.WebkitTransform = "rotate(270deg)"; 
 				// Code for IE9
 		document.getElementById("arrow1").style.msTransform = "rotate(270deg)"; 
 				// Standard syntax
 		document.getElementById("arrow1").style.transform = "rotate(270deg)";
-		document.getElementById(tn+"-11a").onclick=function()
+		document.getElementById(tn+"-11").onclick=function()
 		{
 			myStopFunction();
 			 $('.door6-2').toggleClass('doorOpen');
-			document.getElementById(tn+"-11a").onclick="";	
+			document.getElementById(tn+"-11").onclick="";	
 			setTimeout(function(){
-				document.getElementById(tn+"-11a").style.visibility="hidden";
+				document.getElementById(tn+"-11").style.visibility="hidden";
 			},350);
 			setTimeout(function()
 			{
@@ -1993,54 +1987,32 @@ function placeBeakerinOven()
 					document.getElementById(tn+"-5").onclick="";
 					$("#"+tn+"-5").css({"visibility":"hidden"});
 					$("#"+tn+"-6").css({"visibility":"visible"});
-					$("#"+tn+"-6").animate({"position":"absolute","left":"320px","top":"120px"},900,
+					$("#"+tn+"-6").animate({"position":"absolute","left":"102.5px","top":"190px"},800,
 					function()
 					{
-						$("#"+tn+"-6").animate({"position":"absolute","top":"130px"},100,
+						$("#"+tn+"-6").animate({"position":"absolute","top":"200px"},100,
 						function()
 						{
-							
 							document.getElementById(tn+"-6").style.visibility="hidden";
-							$("#"+tn+"-5").css({"position":"absolute","left":"337.5px","top":"205px"});	
+							$("#"+tn+"-5").css({"position":"absolute","left":"95px","top":"275px"});
 							$("#"+tn+"-5").css({"visibility":"visible"});							
 							myInt = setInterval(function(){ animatearrow(); }, 500);
-							document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:630px; top:255px; height: 35px; z-index: 10;";
+							document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:430px; top:255px; height: 35px; z-index: 10;";
 							document.getElementById("arrow1").style.WebkitTransform = "rotate(0deg)"; 
 							// Code for IE9
 							document.getElementById("arrow1").style.msTransform = "rotate(0deg)"; 
 							// Standard syntax
 							document.getElementById("arrow1").style.transform = "rotate(0deg)";
-							document.getElementById("incDoor6-2").onclick=function()
+							document.getElementById("incDoor6-1").onclick=function()
 							{
 								myStopFunction();
-								document.getElementById("incDoor6-2").onclick="";	
+								document.getElementById("incDoor6-1").onclick="";	
 								$('.door6-2').toggleClass('doorOpen');
 								setTimeout(function()
 								{
-									document.getElementById(tn+"-11a").style.visibility="visible";
-									var temp=110;
-									myInt = setInterval(function(){ animatearrow(); }, 500);
-									document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:466px; top:147px; height: 25px; z-index: 10;";
-									document.getElementById("arrow1").style.WebkitTransform = "rotate(270deg)"; 
-									// Code for IE9
-									document.getElementById("arrow1").style.msTransform = "rotate(270deg)"; 
-									// Standard syntax
-									document.getElementById("arrow1").style.transform = "rotate(270deg)";
-									document.getElementById(tn+"-13a").onclick=function()
-									{
-										if(temp<116)
-										{
-										temp++;
-										document.getElementById(tn+"-12a").innerHTML="&nbsp;"+temp;
-										}
-										if(temp>=115)
-										{
-											myStopFunction();
-											document.getElementById(tn+"-13a").onclick="";
-											//document.getElementById("nextButton").style.visibility="visible";
-											validateAnswer(0,2,"535px","150px");
-										}
-									}
+									document.getElementById("6-pd").style.visibility="hidden";
+									document.getElementById(tn+"-11").style.visibility="visible";
+									validateAnswer(0,2,"435px","150px");
 								},1150);
 							}
 							
@@ -2095,29 +2067,7 @@ function takeoutpetridish()
 							{
 								document.getElementById(tn+"-22").style.visibility="hidden";
 								$("#"+tn+"-21").css({"visibility":"visible","position":"absolute","top":"435px"});
-								// document.getElementById(tn+"-23").style.visibility="visible";
-								myInt = setInterval(function(){ animatearrow(); }, 500);
-								document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:430px; top:255px; height: 35px; z-index: 10;";
-								document.getElementById("arrow1").style.WebkitTransform = "rotate(0deg)"; 
-								// Code for IE9
-								document.getElementById("arrow1").style.msTransform = "rotate(0deg)"; 
-								// Standard syntax
-								document.getElementById("arrow1").style.transform = "rotate(0deg)";
-								//$('.door').click(function()
-								document.getElementById("incDoor8-1").onclick=function()
-								{
-									myStopFunction();
-									document.getElementById("incDoor8-1").onclick="";	
-									$('.door8-1').toggleClass('doorOpen');
-									setTimeout(function()
-									{
-										document.getElementById(tn+"-11").style.visibility="visible";
-										setTimeout(function()
-										{
-											takeoutcrucible();
-										},500);
-									},1150);
-								}
+								takeoutcrucible();		
 							});
 						});
 					}
@@ -2132,91 +2082,71 @@ function takeoutcrucible()
 	setTimeout(function()
 	{
 		myInt = setInterval(function(){ animatearrow(); }, 500);
-		document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:350px; top:235px; height: 30px; z-index: 10;";
-		document.getElementById("arrow1").style.WebkitTransform = "rotate(270deg)"; 
+		document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:100px; top:320px; height: 30px; z-index: 10;";
+		document.getElementById("arrow1").style.WebkitTransform = "rotate(180deg)"; 
 				// Code for IE9
-		document.getElementById("arrow1").style.msTransform = "rotate(270deg)"; 
+		document.getElementById("arrow1").style.msTransform = "rotate(180deg)"; 
 				// Standard syntax
-		document.getElementById("arrow1").style.transform = "rotate(270deg)";
-		document.getElementById(tn+"-11a").onclick=function()
+		document.getElementById("arrow1").style.transform = "rotate(180deg)";
+		document.getElementById(tn+"-31").onclick=function()
 		{
 			myStopFunction();
-			 $('.door8-2').toggleClass('doorOpen');
-			document.getElementById(tn+"-11a").onclick="";	
-			setTimeout(function(){
-				document.getElementById(tn+"-11a").style.visibility="hidden";
-				setTimeout(function()
+			document.getElementById(tn+"-31").onclick="";
+			document.getElementById(tn+"-31").style.visibility="hidden";
+			document.getElementById(tn+"-32").style.visibility="visible";
+			setTimeout(function()
+			{
+				$("#"+tn+"-32").animate({"position":"absolute","top":"265px"},100,
+				function()
 				{
-					myInt = setInterval(function(){ animatearrow(); }, 500);
-					document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:365px; top:262px; height: 30px; z-index: 10;";
-					document.getElementById("arrow1").style.WebkitTransform = "rotate(180deg)"; 
-							// Code for IE9
-					document.getElementById("arrow1").style.msTransform = "rotate(180deg)"; 
-							// Standard syntax
-					document.getElementById("arrow1").style.transform = "rotate(180deg)";
-					document.getElementById(tn+"-31").onclick=function()
+					$("#"+tn+"-32").animate({"position":"absolute","left":"300px","top":"403.5px"},1000,
+					function()
 					{
-						myStopFunction();
-						document.getElementById(tn+"-31").onclick="";
-						document.getElementById(tn+"-31").style.visibility="hidden";
-						document.getElementById(tn+"-32").style.visibility="visible";
-						setTimeout(function()
+						document.getElementById(tn+"-32").style.visibility="hidden";
+						$("#"+tn+"-31").css({"visibility":"visible","position":"absolute","left":"325px","top":"437.5px"});
+						// document.getElementById(tn+"-23").style.visibility="visible";
+						myInt = setInterval(function(){ animatearrow(); }, 500);
+						document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:430px; top:255px; height: 35px; z-index: 10;";
+						document.getElementById("arrow1").style.WebkitTransform = "rotate(0deg)"; 
+						// Code for IE9
+						document.getElementById("arrow1").style.msTransform = "rotate(0deg)"; 
+						// Standard syntax
+						document.getElementById("arrow1").style.transform = "rotate(0deg)";
+						//$('.door').click(function()
+						document.getElementById("incDoor8-1").onclick=function()
 						{
-							$("#"+tn+"-32").animate({"position":"absolute","top":"185px"},300,
-							function()
+							myStopFunction();
+							document.getElementById("incDoor8-1").onclick="";	
+							$('.door8-1').toggleClass('doorOpen');
+							setTimeout(function()
 							{
-								$("#"+tn+"-32").animate({"position":"absolute","top":"403.5px"},1400,
-								function()
+								document.getElementById(tn+"-11").style.visibility="visible";
+								setTimeout(function()
 								{
-									document.getElementById(tn+"-32").style.visibility="hidden";
-									$("#"+tn+"-31").css({"visibility":"visible","position":"absolute","top":"423.5px"});
-									// document.getElementById(tn+"-23").style.visibility="visible";
-									myInt = setInterval(function(){ animatearrow(); }, 500);
-									document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:675px; top:255px; height: 35px; z-index: 10;";
-									document.getElementById("arrow1").style.WebkitTransform = "rotate(0deg)"; 
-									// Code for IE9
-									document.getElementById("arrow1").style.msTransform = "rotate(0deg)"; 
-									// Standard syntax
-									document.getElementById("arrow1").style.transform = "rotate(0deg)";
-									//$('.door').click(function()
-									document.getElementById("incDoor8-2").onclick=function()
+									$("#"+tn+"-1").css({"visibility":"hidden"});
+									$("#"+tn+"-11").css({"visibility":"hidden"});
+									$("#"+tn+"-12").css({"visibility":"hidden"});
+									$("#"+tn+"-13").css({"visibility":"hidden"});
+									$("#"+tn+"-14").css({"visibility":"hidden"});
+									$("#incDoor8-1").css({"visibility":"hidden"});
+									$("#"+tn+"-1a").css({"visibility":"hidden"});
+									$("#"+tn+"-11a").css({"visibility":"hidden"});
+									$("#"+tn+"-12a").css({"visibility":"hidden"});
+									$("#"+tn+"-13a").css({"visibility":"hidden"});
+									$("#"+tn+"-14a").css({"visibility":"hidden"});
+									$("#incDoor8-2").css({"visibility":"hidden"});
+							
+									$("#"+tn+"-4a").css({"visibility":"visible"});
+									setTimeout(function()
 									{
-										myStopFunction();
-										document.getElementById("incDoor8-2").onclick="";	
-										$('.door8-2').toggleClass('doorOpen');
-										setTimeout(function()
-										{
-											document.getElementById(tn+"-11a").style.visibility="visible";
-											setTimeout(function()
-											{
-												$("#"+tn+"-1").css({"visibility":"hidden"});
-												$("#"+tn+"-11").css({"visibility":"hidden"});
-												$("#"+tn+"-12").css({"visibility":"hidden"});
-												$("#"+tn+"-13").css({"visibility":"hidden"});
-												$("#"+tn+"-14").css({"visibility":"hidden"});
-												$("#incDoor8-1").css({"visibility":"hidden"});
-												$("#"+tn+"-1a").css({"visibility":"hidden"});
-												$("#"+tn+"-11a").css({"visibility":"hidden"});
-												$("#"+tn+"-12a").css({"visibility":"hidden"});
-												$("#"+tn+"-13a").css({"visibility":"hidden"});
-												$("#"+tn+"-14a").css({"visibility":"hidden"});
-												$("#incDoor8-2").css({"visibility":"hidden"});
-												$("#p8-2").css({"visibility":"hidden"});
-												$("#p8-3").css({"visibility":"hidden"});
-												$("#"+tn+"-4a").css({"visibility":"visible"});
-												setTimeout(function()
-												{
-													placeinDessicator();
-												},200);
-											},500);
-										},1150);
-									}
-								});
-							});
-						},600);
-					}
-				},1500);
-			},350);
+										placeinDessicator();
+									},200);
+								},500);
+							},1150);
+						}
+					});
+				});
+			},600);
 		}
 	},500);
 }
@@ -2228,8 +2158,8 @@ function placeinDessicator()
 	$("#"+tn+"-42").css({"visibility":"visible"});
 	$("#"+tn+"-43").css({"visibility":"visible"});
 	$("#"+tn+"-46").css({"visibility":"visible"});
-	$("#"+tn+"-21").css({"position":"absolute","left":"30px"});
-	
+	$("#"+tn+"-21").css({"left":"30px"});
+
 	$("#p"+tn+"-1").fadeIn(100);
     document.getElementById("b"+tn+"-1").onclick=function()
 	{
@@ -2252,6 +2182,7 @@ function placeinDessicator()
 				$("#"+tn+"-41").animate({"position":"absolute","left":"100px","top":"415px"},1100,
 				function()
 				{
+					console.log("jjkk");
 					myInt = setInterval(function(){ animatearrow(); }, 500);
 					document.getElementById('arrow1').style="visibility:visible ;position:absolute; left:80px; top:440px; height: 35px; z-index: 10;";
 					document.getElementById("arrow1").style.WebkitTransform = "rotate(270deg)"; 
