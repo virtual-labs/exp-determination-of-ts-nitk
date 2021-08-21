@@ -1,0 +1,44 @@
+[{
+	"question": "Fine suspended solid in water is removed by",
+	"answers": {
+		"a": "Screening ",
+		"b": "Skimming",
+		"c": "Sedimentation",
+		"d": "Filtration"
+	},
+	"correctAnswer": "c"
+}, {
+	"question": "Total Suspended Solids are mostly responsible for ",
+	"answers": {
+		"a": "Colour",
+		"b": "Turbidity",
+		"c": "Odour",
+		"d": "Taste"
+	},
+	"correctAnswer": "b"
+}, {
+	"question": "The chemical substance used in the desiccators is ___________________ ",
+	"answers": {
+		"a": "Calcium Carbonate",
+		"b": "Sodium Chloride",
+		"c": "Sodium Hydroxide",
+		"d": "Calcium Chloride"
+	},
+	"correctAnswer": "d"
+}, {
+	"question": "Always the Total Suspended Solids value will be",
+	"answers": {
+		"a": "Less than Total Dissolved Solids",
+		"b": "Greater than Total Dissolved Solids",
+		"c": "Less than Total Solids",
+		"d": "Greater than Total Solids"
+	},
+	"correctAnswer": "c"
+}, {
+	"question": "High total dissolved solids indicates lower level of hardness.",
+	"answers": {
+		"a": "True",
+		"b": "False"
+	},
+	"correctAnswer": "b"
+}]
