@@ -41,7 +41,7 @@ var questions=["At what temperature filter paper is</br> allowed to dry in hot a
 			   "Filter paper with solids is ignited in a</br> muffle furnace at ______ &deg;C temperature.",
 			   "Dessicator is used to prevent </br>the sample from external moisture?",
 			   "The TDS present in water are one </br>of the leading causes of turbidity</br> and sediments in drinking water?"];
-var options2=[["101","102","103","104"],//103
+var options2=[["101","103","105","107"],//105
 			  ["600","601","602","603"],//600
 			  ["True","False"],//true
 			  ["True","False"]];//False
