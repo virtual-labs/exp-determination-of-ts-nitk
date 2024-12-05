@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SOLVE</title>
+ <link href="css/mathstyle.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquerymin.js"></script>
+<link rel="stylesheet" href="css/solids.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/solids.js"></script>
+
+<script>
+var simsubscreennum=0;
+var temp=0;
+</script>
+
+<style>
+.popup
+{
+	border-radius:5px;
+	background-color:black;
+	color:white;
+	padding:5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  left:50px;
+  visibility: hidden;
+  width: 500px;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 10px 10px 10px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  <!-- text-align:center; -->
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+</style>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h3>Determination of TS,TDS and TSS in water</h3></div>
+
+<div class="simsubscreen" id="canvas0" >
+<h4 class="incanvas">Objective:</h4>
+<p class="incanvas" style="font-size:14px;">To determine Total Solids (TS), Total Dissolved Solids (TDS), Total Suspended Solids (TSS), Volatile</br></br> Suspended Solids and Fixed Suspended Solids in the given water sample.</p><br/>
+<h4 class="incanvas">Apparatus used:</h4>
+<p class="incanvas" style="font-size:14px;">Weighing scale, Petri dish, Ashless filter papers, Membrane filter holder, Crucible, Oven, </br></br>Vacuum pump, Beaker, Desiccator, Pipette etc.</p></br>
+
+
+<img style="position:absolute; left:160px; top:210px;" src="images/table.png" />
+<img style="position:absolute; left:10px; top:185.5px;" title="" src="images/human.png" />
+<div style="position:absolute; left:185px; top:290px; width:140px; background-color:transparent; height:100px; cursor:pointer;"  title="Weighing scale"></div>
+<div style="position:absolute; left:545px; top:210px; width:110px; background-color:transparent; height:177.5px; cursor:pointer;"  title="Filter"></div>
+<div style="position:absolute; left:455px; top:350px; width:78px; background-color:transparent; height:40px; cursor:pointer;"  title="Filter paper"></div>
+<div style="position:absolute; left:395px; top:345px; width:50px; background-color:transparent; height:40px; cursor:pointer;" title="Crucible"></div>
+<div style="position:absolute; left:335px; top:350px; width:50px; background-color:transparent; height:30px; cursor:pointer;" title="Petri dish"></div>
+
+&nbsp;<span class="tooltip" style="border-bottom:1px dotted ; color:red; position:absolute;  left:150px; top:200px; text-align:justify;"><strong>Description</strong>
+<span  class="tooltiptext" style=" font-size:14px;"><strong style="color:red;">Total Dissolved Solids (TDS)</strong> is the amount of combined contents of all inorganic and organic substances contained in a liquid in molecular, ionized or micro-granular (colloidal sol) suspended form. </br></br>
+<strong style="color:red;">Total Suspended Solids (TSS)</strong> are solids that can be trapped using a filter in water. TSS can include a wide variation in material, such as silt, decaying plant and animal matter, industrial wastes and sewage.</br></br>
+<strong style="color:red;">Total Solids (TS)</strong> can be found by summation of TSS and TDS.
+</span></span>
+</div>
+
+<div id="canvas1" style="visibility:hidden; text-align:center;">
+<h1 id="1-1" style="position:absolute;  left:120px;top:150px; color:grey; display:none; text-align:center;">Total Suspended Solids (TSS),<br/><br/> Total Dissolved Solids(TDS)</br><br/> and </br><br/> Total Solids (TS)</</h1>
+</div>
+
+<div class="simsubscreen" id="canvas2" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;1&nbsp;</span>
+<p class="steptext">&nbsp;Take 50ml of water sample in a beaker.</p>
+
+<div id="2-4a" style="position:absolute; left:578px; top:325px; width:7px; height:130px; background-color:#FFFACD;" ></div>
+<div  style="position:absolute; left:10px; top:440px; width:300px; height:100px; background-color:white; " ></div>
+<img id="2-4" style="position:absolute; left:560px; top:50px; cursor:pointer; display:none;" src="images/gp2.png" />
+
+<div id="drop2-1" style="position:absolute; width:8px; height:9px; border-radius:50%; border-top-right-radius:0; transform:rotate(-45deg);  background-color: #ffe1f0; visibility:hidden;"></div>
+
+<div id="2-22b" style="position:absolute; left:76px; top:432px; width:60px; height:50px; background-color:#FFFACD;" ></div>
+<img id="2-2b" style="position:absolute; left:70px; top:360px; " title="Beaker" src="images/beaker.png" />
+
+<div id="2-3c" style="position:absolute; left:540px; top:325px; width:80px; height:112px; background-color:#FFFACD;" ></div>
+<img id="2-3a" style="position:absolute; left:540px; top:285px; width:80px;" title="Water sample" src="images/reagentBottle.png" />
+<div id="2-3name" style="position:absolute; left:548.5px; top:355px; width:58.5px; background-color:#FFFFFF; border:1px solid black; font-size:12px; text-align:center;">Water sample</div>
+<img id="2-3b" style="position:absolute; left:561.35px; top:285.25px; width:35px; cursor:pointer;" src="images/cap.png" />
+
+<img id="2-5" style="position:absolute; left:250px; top:100px; visibility:hidden;" src="images/bulb.png"  />
+<img id="2-5a" style="position:absolute; left:302px; top:208px; cursor:pointer; visibility:hidden;" src="images/uparrow.png"  />
+<img id="2-5b" style="position:absolute; left:314px; top:220px; transform:rotate(180deg); cursor:pointer; visibility:hidden;" src="images/uparrow.png"  />
+</div>
+
+<div class="simsubscreen" id="canvas3" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;2&nbsp;</span>
+<p class="steptext">&nbsp;Note down the weight of the crucible, petri dish and filter paper.</p>
+
+<div id="3-21" style="position:absolute; left:104px; top:375px; background-color:#D3D3D3; border-top:1.5px solid #D3D3D3; width:74px; height:19px; visibility:hidden; text-align:center;"></div>
+<img style="position:absolute; left:40px; top:300px; " src="images/wm.png" />
+<div id="3-22" style="position:absolute; left:55px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="3-23" style="position:absolute; left:101px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="3-24" style="position:absolute; left:147px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="3-25" style="position:absolute; left:193px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<img id="3-12" style="position:absolute; left:410px; top:356px; visibility:hidden;"  src="images/petridish2.png" />
+<img id="3-1" style="position:absolute; left:410px; top:410px; width:45px; cursor:pointer; visibility:hidden;" title="Petri dish" src="images/pd5.png" />
+
+<img id="3-41" style="position:absolute; left:410px; top:342px; visibility:hidden;" src="images/cru3.png" />
+<img id="3-42" style="position:absolute; left:405px; top:402.5px; cursor:pointer; " title="Crucible" src="images/crucible.png" />
+
+<img id="3-31" style="position:absolute; left:400px; top:385px; width:85px; display:none; " title="Filter Paper" src="images/filterpaperbox.png" />
+<div id="3-32" style="position:absolute; left:400px; top:385px; background-color:transparent; width:80px; height:35px; cursor:pointer; visibility:hidden;"></div>
+<img id="3-33" style="position:absolute; left:420px; top:337.5px; visibility:hidden;" src="images/fp2.png" />
+
+<div id="para" style="position:absolute; left:280px; top:100px; font-size:14px;"></div>
+
+<!-- <span id="3-5" style="position:absolute; left:100px; top:150px; text-align:center; padding:15px; display:none; border:1px solid black; background-color:black; border-radius:5px;"> -->
+<!-- <p style="color:white; font-size:15px;" >Cut down the excess part of filter paper if its diameter exceeds that of petridish </p> -->
+<!-- <input id="b1-1" type="button" style="float:right;" value="OK" /> -->
+<!-- </span> -->
+
+</div>
+
+
+<div class="simsubscreen" id="canvas4" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;3&nbsp;</span>
+<p class="steptext">&nbsp;Place the filter paper in the membrane filter and pour 50ml of sample from top of filter slowly.</p>
+
+<img id="4-5" style="position:absolute; left:92px; top:336px;  visibility:hidden;" src="images/sample1.png"  />
+<div id="4-51" style="position:absolute; left:92px; top:352.5px; width:100px; height:60px; background-color:#FFFFFF; visibility:hidden;" ></div>
+
+<div id="4-41" style="position:absolute; left:192.5px; top:202px; width:61px; height:50px; background-color:#FFFACD; visibility:hidden;" ></div>
+<div id="4-43" style="position:absolute; left:160.75px; top:227px; width:71px; height:30px; background-color:#FFFACD; visibility:hidden;" ></div>
+<div id="4-44" style="position:absolute; left:160.75px; top:253.5px; width:71px; height:50px; background-color:#FFFFFF; visibility:hidden;" ></div>
+<div id="4-432" style="position:absolute; left:160.75px; top:244px; width:7px; height:65px; background-color:#FFFACD; visibility:hidden;" ></div>
+<img id="4-42" style="position:absolute; left:186px; top:160px; visibility:hidden; " title="Beaker" src="images/beaker.png" />
+
+<img id="4-1t2" style="position:absolute; left:61.5px; top:257.5px;  cursor:pointer; width:115px;" src="images/topfilter2.png"  />
+<img id="4-1bs" style="position:absolute; left:93.5px; top:451px; visibility:hidden; " src="images/sample1.png"  />
+
+<div id="4-1bs2" style="position:absolute; left:93.5px; top:466.5px; width:100px; height:80px; background-color:#FFFFFF; visibility:hidden;" ></div>
+
+<img id="4-1b" style="position:absolute; left:50px; top:350px;  cursor:pointer; width:150px;" src="images/bottomfilter.png"  />
+
+<img id="4-21" style="position:absolute; left:270px; top:435px;  width:55px; cursor:pointer; display:none;" title="Petri dish" src="images/petridish.png"  />
+<img id="4-22" style="position:absolute; left:275px; top:382.5px;  visibility:hidden;" src="images/fp2.png"  />
+<img id="4-23" style="position:absolute; left:95px; top:351px;  visibility:hidden;" src="images/fp3.png"  />
+
+<img id="4-1t1" style="position:absolute; left:61.5px; top:257.5px;  cursor:pointer; width:115px;" src="images/topfilter.png"  />
+<img id="4-1t3" style="position:absolute; left:61.5px; top:257.5px;  visibility:hidden;" src="images/topfilter3.png"  />
+
+
+<img id="4-31" style="position:absolute; left:195px; top:199px;  visibility:hidden; " src="images/vacuumpump.png"  />
+<img id="4-35" style="position:absolute; left:538px; top:214px;  visibility:hidden; " src="images/switch.png"  />
+<img id="4-32" style="position:absolute; left:212.5px; top:307px;  visibility:hidden; " src="images/hand.png"  />
+<img id="4-33" style="position:absolute; left:22.5px; top:397px;  visibility:hidden; " src="images/hand3.png"  />
+
+<p id="p4-1" style="position:absolute; left:180px; top:225px; font-size:14px; color:red; display:none;" >Connect the filter to vacuum pump<p>
+
+<div id="4-34" style="position:absolute; left:538px; top:214px; background-color:transparent;  width:17px; height:25px; cursor:pointer; visibility:hidden;"></div>
+<div id="4-30" style="position:absolute; left:209px; top:364px; background-color:transparent;  width:70px; height:25px; cursor:pointer; visibility:hidden;"></div>
+
+<div id="4-421" style="position:absolute; left:186px; top:160px; width:74px; height:75px; background-color:transparent; cursor:pointer; visibility:hidden;" ></div>
+
+</div>
+
+<div class="simsubscreen" id="canvas5" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;4&nbsp;</span>
+<p class="steptext">&nbsp;Take out the filter paper from the filter and allow it to dry in hot air oven at 105&deg;C over night.</p>
+
+<div id="5-12" style="position:absolute; left:116px; top:125.5px; width:40px; height:17.5px; background-color:#D3D3D3; font-weight:bold; font-size:14px; visibility:hidden;" >&nbsp;100</div>
+<img id="5-1" style="position:absolute; left:20px; top:100px; width:210px; visibility:hidden; " src="images/oven.png" />
+<div id="5-13" style="position:absolute; left:168px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Increase Temperature"></div>
+<div id="5-14" style="position:absolute; left:192.5px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Decrease Temperature"></div>
+
+<img id="5-1t2" style="position:absolute; left:61.5px; top:257.5px;  cursor:pointer; width:115px;" src="images/topfilter2.png"  />
+<img id="5-1bs" style="position:absolute; left:72.5px; top:440px;  " src="images/sample1.png"  />
+<div id="5-1bs2" style="position:absolute; left:72.5px; top:466.5px; width:100px; height:80px; background-color:#FFFFFF; " ></div>
+
+<img id="5-1b" style="position:absolute; left:50px; top:350px;  cursor:pointer; width:150px;" src="images/bottomfilter.png"  />
+
+<img id="5-22" style="position:absolute; left:100px; top:292px;  visibility:hidden;" src="images/fp2.png"  />
+<img id="5-23" style="position:absolute; left:95px; top:351px; cursor:pointer;" src="images/fp3.png"  />
+<div id="5-222" style="position:absolute; left:105px; top:353.5px; cursor:pointer; border-radius:6px/3px; width:35px; height:6px; background-color:#FFFACD"></div>
+<div id="5-223" style="position:absolute; left:87px; top:350px; cursor:pointer; width:70px; height:25px; background-color:transparent;"></div>
+
+<img id="5-24" style="position:absolute; left:100px; top:220px; visibility:hidden;"  src="images/pd3.png" />
+<img id="5-212" style="position:absolute; left:270px; top:384px; visibility:hidden;"  src="images/petridish3.png" />
+<img id="5-21" style="position:absolute; left:270px; top:435px;  width:55px; cursor:pointer; display:none;" title="Petri dish" src="images/petridish.png"  />
+
+<img id="5-1t1" style="position:absolute; left:61.5px; top:257.5px;  cursor:pointer; width:115px;" src="images/topfilter.png"  />
+<img id="5-1t3" style="position:absolute; left:61.5px; top:257.5px;  visibility:hidden;" src="images/topfilter3.png"  />
+
+<p id="p5-1" style="position:absolute; left:180px; top:225px; font-size:14px; color:red; display:none;" >Connect the filter to vacuum pump<p>
+
+<div class="door" id="incDoor" style="visibility:hidden;" ></div>
+<img id="5-11" style="position:absolute; left:35px; top:225px; cursor:pointer; visibility:hidden;" src="images/ovenknob.png" />
+
+</div>
+
+<div class="simsubscreen" id="canvas6" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;5&nbsp;</span>
+<p class="steptext">&nbsp;Collect the sample that passes through the filter paper in a clean crucible and allow it to dry in hot air oven at 103&deg;C to 105&deg;C over night.</p>
+
+<div id="" style="position:absolute; left:20px; top:100px; width:480px; height:305px; background-color:white; "></div>
+
+<div id="6-12" style="position:absolute; left:116px; top:125.5px; width:40px; height:17.5px; background-color:#D3D3D3; font-weight:bold; font-size:14px; visibility:hidden;" >&nbsp;105</div>
+<img id="6-1" style="position:absolute; left:20px; top:100px; width:210px; visibility:hidden; " src="images/oven.png" />
+<div id="6-13" style="position:absolute; left:168px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Increase Temperature"></div>
+<div id="6-14" style="position:absolute; left:192.5px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Decrease Temperature"></div>
+
+<img id="6-pd" style="position:absolute; left:100px; top:220px; visibility:hidden;"  src="images/pd3.png" />
+
+<img id="6-1bs" style="position:absolute; left:72.5px; top:440px;  " src="images/sample1.png"  />
+<div id="6-3" style="position:absolute; left:366.5px; top:370px; width:7.5px; height:40px; background-color:#FFFACD; visibility:hidden;" ></div>
+<img id="6-1b" style="position:absolute; left:50px; top:350px;  cursor:pointer; width:150px;" src="images/bottomfilter.png"  />
+<img id="6-2" style="position:absolute; left:23px; top:350px;  visibility:hidden; " src="images/bf2.png"  />
+
+<div id="6-82" style="position:absolute; left:392px; top:420px; width:7px; height:130px; background-color:#FFFACD; visibility:hidden;" ></div>
+<div id="6-83" style="position:absolute; left:392px; top:425px; width:7px; height:130px; background-color:#FFFFFF; visibility:hidden;" ></div>
+<img id="6-81" style="position:absolute; left:375px; top:120px; display:none;"  src="images/gp2.png" />
+
+<div id="6-4" style="position:absolute; left:366px; top:456px; width:60px; height:35px; background-color:#FFFACD; " ></div>
+<img id="6-212" style="position:absolute; left:360px; top:384px;"  src="images/beaker.png" />
+<img id="6-5" style="position:absolute; left:85px; top:425px; visibility:hidden;"  src="images/crucible.png" />
+
+<div class="door6-2" id="incDoor6-1" style="visibility:hidden;" ></div>
+<img id="6-11" style="position:absolute; left:35px; top:225px; cursor:pointer; visibility:hidden;" src="images/ovenknob.png" />
+
+<img id="6-6" style="position:absolute; left:85px; top:385px; visibility:hidden;"  src="images/cru4.png" />
+
+<img id="6-7" style="position:absolute; left:150px; top:100px; visibility:hidden;" src="images/bulb.png"  />
+<img id="6-7a" style="position:absolute; left:202px; top:208px; cursor:pointer; visibility:hidden;" src="images/uparrow.png"  />
+<img id="6-7b" style="position:absolute; left:214px; top:220px; transform:rotate(180deg); cursor:pointer; visibility:hidden;" src="images/uparrow.png"  />
+
+</div>
+
+
+<div id="canvas7" style="visibility:hidden; text-align:center;">
+<div id="7-2" style="position:absolute; left:20px; top:120px; width:530px; height:305px; background-color:white; "></div>
+<h1 id="7-1" style="position:absolute;  left:250px; top:250px; color:grey; display:none; text-align:center;">After 24 hours</h1>
+</div>
+
+<div class="simsubscreen" id="canvas8" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;6&nbsp;</span>
+<p class="steptext">&nbsp;Take out petri dish and crucible from the hot air oven and allow it cool in desiccator.</p>
+
+<div id="8-12" style="position:absolute; left:116px; top:125.5px; width:40px; height:17.5px; background-color:#D3D3D3; font-weight:bold; font-size:14px;">&nbsp;105</div>
+<img id="8-1" style="position:absolute; left:20px; top:100px; width:210px;  " src="images/oven.png" />
+<div id="8-13" style="position:absolute; left:168px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Increase Temperature"></div>
+<div id="8-14" style="position:absolute; left:192.5px; top:124px; width:20.25px; height:18.5px; background-color:transparent; font-weight:bold; font-size:14px;  visibility:hidden; cursor:pointer;" title="Decrease Temperature"></div>
+
+<img id="8-32" style="position:absolute; left:102.5px; top:275px; width:115px; visibility:hidden;"  src="images/cdt.png" />
+<img id="8-31" style="position:absolute; left:95px; top:275px; "  src="images/crucible.png" />
+
+<img id="8-22" style="position:absolute; left:100px; top:140px; width:45px; visibility:hidden;"  src="images/dt2.png" />
+<img id="8-21" style="position:absolute; left:100px; top:217.5px; cursor:pointer;"  src="images/pd4.png" />
+<img id="8-24" style="position:absolute; left:30px; top:217.5px; cursor:pointer; visibility:hidden;"  src="images/pd4.png" />
+<img id="8-23" style="position:absolute; left:100px; top:450px; visibility:hidden;"  src="images/pd5.png" />
+
+<div class="door8-1" id="incDoor8-1" style="" ></div>
+<img id="8-11" style="position:absolute; left:35px; top:225px; cursor:pointer; " src="images/ovenknob.png" />
+
+<div id="8-4a" style="position:absolute; left:20px; top:100px; width:480px; height:305px; background-color:white;  visibility:hidden; "></div>
+
+<img id="8-43" style="position:absolute; left:250px; top:322.5px; visibility:hidden; " src="images/dessicator.png" />
+<img id="8-45" style="position:absolute; left:470px; top:322px;  visibility:hidden;"  src="images/dt3.png" />
+<img id="8-46" style="position:absolute; left:480px; top:423.5px; visibility:hidden;"  src="images/crucible.png" />
+
+<img id="8-42" style="position:absolute; left:250px; top:322.5px; visibility:hidden; " src="images/dessicator1.png" />
+<img id="8-41" style="position:absolute; left:250.35px; top:290.5px; visibility:hidden; " src="images/dc.png" />
+
+<img id="8-44" style="position:absolute; left:272.5px; top:383px; cursor:pointer; visibility:hidden;"  src="images/pd4.png" />
+<img id="8-47" style="position:absolute; left:330px; top:363px; cursor:pointer; visibility:hidden; width:55px;"  src="images/cru.png" />
+
+<span id="p8-1" style="position:absolute; left:100px; top:120px; text-align:justify; padding:15px; display:none; border:1px solid black; background-color:black; border-radius:5px;">
+<p style="color:white; font-size:15px;" >Desiccator is used to prevent the sample </br>from external moisture.</p>
+<input id="b8-1" type="button" style="float:right;" value="OK" />
+</span>
+</div>
+
+
+<div class="simsubscreen" id="canvas9" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;7&nbsp;</span>
+<p class="steptext">&nbsp;Take out petri dish and crucible from the desiccator after 24 hours. Then note down the final weight of the ash less filter paper and final weight of the crucible.</p>
+
+<div id="9-21" style="position:absolute; left:104px; top:375px; background-color:#D3D3D3; border-top:1.5px solid #D3D3D3; width:74px; height:19px; visibility:hidden; text-align:center;"></div>
+<img style="position:absolute; left:40px; top:300px; " src="images/wm.png" />
+<div id="9-22" style="position:absolute; left:55px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="9-23" style="position:absolute; left:101px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="9-24" style="position:absolute; left:147px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="9-25" style="position:absolute; left:193px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<img id="9-12" style="position:absolute; left:410px; top:356px; visibility:hidden;"  src="images/petridish4.png" />
+<img id="9-1" style="position:absolute; left:410px; top:410px; cursor:pointer;" title="Petri dish" src="images/pd4.png" />
+
+<img id="9-32" style="position:absolute; left:400px; top:332px;  visibility:hidden;" title="crucible" src="images/cru2.png" />
+<img id="9-31" style="position:absolute; left:400px; top:390px;  display:none; width:55px;" title="crucible" src="images/cru.png" />
+<!-- <div id="9-32" style="position:absolute; left:400px; top:385px; background-color:transparent; width:80px; height:35px; cursor:pointer; visibility:hidden;">hjhh</div> -->
+
+<p id="p9-1" style="position:absolute; left:250px; top:200px; font-size:14px;  display:none;" ><p>
+<p id="p9-2" style="position:absolute; left:250px; top:200px; font-size:14px;  display:none;" ><p>
+
+<div id="para9" style="position:absolute; left:240px; top:100px; font-size:14px; padding:10px"></div>
+</div>
+
+<!-- TSS and TDS calculation -->
+<div id="canvas10" class="simsubscreen" style="visibility:hidden; font-size:15px;">
+<strong style="position:absolute; left:0px; top:10px;"><h3>Observations: </h3></strong></br></br></br>
+
+<p id="p10-1" style="position:absolute; left:0px;" >Volume of sample taken = 50ml </p></br></br>
+<p id="pp1"><strong style="border-bottom:1px double black;">Total Suspended Solids, (TSS):</strong></p>
+<p id="p10-2" style="position:absolute; left:0px;">Weight of empty petri dish + filter paper (W<sub>1</sub>) = </p></br></br></br>
+<p id="p10-3" style="position:absolute; left:0px;">Weight of empty petri dish + filter paper + solids (W<sub>2</sub>) = </p></br></br></br>
+<p id="p10-4" style="position:absolute; left:0px;">Total Suspended Solids, (TSS) = <input id="in1" type="text" style="border:none; border-bottom:1px solid black; width:75px; font-size:15px;"/>mg/l&nbsp;&nbsp;<input id="c1" type="button" value="Check"/>&nbsp;&nbsp;<input id="res1" type="button" value="Result" style="visibility:hidden"/></p></br></br></br>
+
+<p style="position:absolute; left:430px; top:75px; border:1px solid black; padding:5px;">TSS = <span class="frac"><sup>(W<sub>2</sub> - W<sub>1</sub>)</sup><span>&frasl;</span><sub>Volume of the sample</sub></span> x 10<sup>6</sup></p>
+
+<p id="pp2" style="visibility:hidden;"><strong  style="border-bottom:1px double black;">Total Dissolved Solids, (TDS):</strong></p>
+<p id="p10-5" style="position:absolute; left:0px; visibility:hidden;">Weight of empty crucible (W<sub>3</sub>) = </p></br></br></br>
+<p id="p10-6" style="position:absolute; left:0px; visibility:hidden;">Weight of empty crucible +  solids (W<sub>4</sub>) = </p></br></br></br>
+<p id="p10-7" style="position:absolute; left:0px; visibility:hidden;">Total Dissolved Solids, (TDS) = <input id="in2" type="text" style="border:none; border-bottom:1px solid black; width:75px; visibility:hidden; font-size:15px;"/>mg/l&nbsp;&nbsp;<input id="c2" type="button" value="Check" style="visibility:hidden;"/>&nbsp;&nbsp;<input id="res2" type="button" value="Result" style="visibility:hidden"/></p></br></br>
+
+<p id="p102" style="position:absolute; left:430px; top:275px; border:1px solid black; padding:5px; visibility:hidden;">TDS = <span class="frac"><sup>(W<sub>4</sub> - W<sub>3</sub>)</sup><span>&frasl;</span><sub>Volume of the sample</sub></span> x 10<sup>6</sup></p>
+
+<p id="r1" style="position:absolute; left:360px; top:237.5px; color:#32CD32; font-size:20px; visibility:hidden;" >&#10004;</p>
+<p id="w1" style="position:absolute; left:490px; top:237.5px; color:red; font-size:20px; visibility:hidden;" >&#10008;</p>
+
+<p id="r2" style="position:absolute; left:360px; top:445px; color:#32CD32; font-size:20px; visibility:hidden;" >&#10004;</p>
+<p id="w2" style="position:absolute; left:490px; top:445px; color:red; font-size:20px; visibility:hidden;" >&#10008;</p>
+</div>
+
+<!-- TS calculation -->
+<div id="canvas11" style="visibility:hidden; ">
+<strong class="incanvas" style="position:absolute; left:50px;"><h3>Observations: </h3></strong></br></br></br>
+<p><strong style="border-bottom:1px double black; position:absolute; left:55px;">Total Solids, (TS):</strong></p></br></br>
+<p id="p11-1" style="position:absolute; left:55px;">Total Suspended Solids, (TSS) = </p></br></br></br>
+<p id="p11-2" style="position:absolute; left:55px;">Total Dissolved Solids, (TDS) = </p></br></br></br>
+<p id="p11-3" style="position:absolute; left:55px;">Total Solids, (TS) = <input id="in11" type="text" style="border:none; border-bottom:1px solid black; width:75px; font-size:15px;"/>mg/l&nbsp;&nbsp;<input id="c11" type="button" value="Check"/>&nbsp;&nbsp;<input id="res11" type="button" value="Result" style="visibility:hidden"/></p></br></br></br>
+
+<p id="p112" style="position:absolute; left:430px; top:125px; border:1px solid black; padding:5px; ">TS = TSS + TDS</p>
+
+<p id="r11" style="position:absolute; left:300px; top:250px; color:#32CD32; font-size:20px; visibility:hidden;" >&#10004;</p>
+<p id="w11" style="position:absolute; left:470px; top:255px; color:red; font-size:20px; visibility:hidden;" >&#10008;</p>
+</div>
+
+<div id="canvas12" style="visibility:hidden; text-align:center;">
+<h1 id="12-1" style="position:absolute;  left:100px; top:200px; color:grey; display:none; text-align:center;">Fixed Suspended Solids (FSS) <br/>and <br/>Volatile Suspended Solids (VSS)</h1>
+</div>
+
+<div class="simsubscreen" id="canvas13" style="visibility:hidden;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;8&nbsp;</span>
+<p class="steptext">&nbsp;Ignite the filter paper with the solids in a muffle pot at 600&deg;C in a muffle furnace.</p>
+
+<div id="13-53" style="position:absolute; left:103.15px; top:325px; background-color:#FF0000; border-radius:5px; width:10px; height:10px; visibility:hidden; "></div>
+<div id="13-52" style="position:absolute; left:137.5px; top:324px; background-color:#FFFF00; border-radius:5px; width:10px; height:10px; visibility:hidden; "></div>
+<div id="13-51" style="position:absolute; left:41px; top:320px; width:60px; height:19px; background-color:#D3D3D3; font-weight:bold; font-size:14px; visibility:hidden; ">&nbsp;600</div>
+<img id="13-5" style="position:absolute; left:20px; top:100px; width:210px; visibility:hidden; " src="images/muffle.png" />
+
+<img id="13-1" style="position:absolute; left:50px; top:410px;  cursor:pointer;" title="Petri dish" src="images/pd4.png" />
+<img id="13-3" style="position:absolute; left:50px; top:410px;  visibility:hidden;" title="Petri dish" src="images/pd5.png" />
+<img id="13-2" style="position:absolute; left:50px; top:356px;  visibility:hidden;"  src="images/fp4.png" />
+
+<img id="13-4" style="position:absolute; left:410px; top:400px; cursor:pointer; " title="Petri dish" src="images/crucible.png" />
+
+<div class="door12-1" id="incDoor12-1" style="visibility:hidden;" ></div>
+<img id="13-11" style="position:absolute; left:35px; top:197.5px; cursor:pointer; visibility:hidden; width:50px" src="images/knotch.png" />
+<div id="13-12"  style="visibility:hidden;  position:absolute; top:155px; left:85px; width:100px; height:100px; background-color:#ffffff;" ></div>
+
+<img id="13-63" style="position:absolute; left:250px; top:322.5px; visibility:hidden; " src="images/dessicator.png" />
+
+<img id="13-8" style="position:absolute; left:106px; top:110px; visibility:hidden; " title="Dish tong" src="images/dt3.png" />
+<img id="13-81" style="position:absolute; left:116px; top:210px; cursor:pointer; visibility:hidden;" title="Crucible" src="images/crucible.png" />
+
+<img id="13-7" style="position:absolute; left:410px; top:322px; visibility:hidden;" title="Petri dish" src="images/cru3.png" />
+
+<img id="13-62" style="position:absolute; left:250px; top:322.5px; visibility:hidden; " src="images/dessicator1.png" />
+<img id="13-61" style="position:absolute; left:100px; top:415px; visibility:hidden; " src="images/dc.png" />
+<!-- <img id="13-61" style="position:absolute; left:250.35px; top:290.5px; visibility:hidden; " src="images/dc.png" /> -->
+<img id="13-82" style="position:absolute; left:302.5px; top:372.5px; cursor:pointer; visibility:hidden;" title="Muffle pot" src="images/crucible.png" />
+
+<img id="13-9c" style="position:absolute; left:440px; top:140px; visibility:hidden;" src="images/clock.png" />
+<img id="13-9n" style="position:absolute; left:525px; top:175px; visibility:hidden;" src="images/needle.png" />
+
+<p id="p13-1" style="position:absolute; left:230px; top:200px; visibility:hidden; color:red; font-size:14px;">Click on door handle to open</br> the muffle furnace door.</p>
+</div>
+
+<div id="canvas14" class="simsubscreen" style="visibility:hidden; font-size:15px;">
+<strong class="incanvas">STEP</strong>
+<span class="circlebg">&nbsp;9&nbsp;</span>
+<p class="steptext">&nbsp;Take out the muffle pot from the desiccator and then note down the weight of it.</p>
+
+<div id="14-21" style="position:absolute; left:104px; top:376px; background-color:#D3D3D3; border-top:1.5px solid #D3D3D3; width:71px; height:19px; visibility:hidden; text-align:center;"></div>
+<img style="position:absolute; left:40px; top:300px; " src="images/wm.png" />
+<div id="14-22" style="position:absolute; left:55px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="14-23" style="position:absolute; left:101px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="14-24" style="position:absolute; left:147px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+<div id="14-25" style="position:absolute; left:193px; top:406px; background-color:transparent; border-top:1px solid #000000; width:32px; height:15px; cursor:pointer;"></div>
+
+<img id="14-41" style="position:absolute; left:410px; top:342px; visibility:hidden;" src="images/cru3.png" />
+<img id="14-42" style="position:absolute; left:405px; top:402.5px; cursor:pointer; " title="Muffle pot" src="images/crucible.png" />
+
+<div id="para14" style="position:absolute; left:300px; top:100px; font-size:14px;"></div>
+</div>
+
+<!-- FSS and VSS calculation -->
+<div id="canvas15" class="simsubscreen" style="visibility:hidden; font-size:15px;">
+<strong style="position:absolute; left:0px; top:10px;"><h3>Observations: </h3></strong></br></br></br>
+<p>Volume of sample taken = 50ml </p>
+<p id="15pp1"><strong style="border-bottom:1px double black;">Fixed Suspended Solids (FSS):</strong></p>
+<p id="p15-2" style="position:absolute; left:0px;">Weight of empty muffle pot (W<sub>5</sub>) = </p></br></br></br>
+<p id="p15-3" style="position:absolute; left:0px;">Weight of empty muffle pot + fixed solids (W<sub>6</sub>) = </p></br></br></br>
+<p id="p15-4" style="position:absolute; left:0px;">Fixed Suspended Solids = <input id="15in1" type="text" style="border:none; border-bottom:1px solid black; width:75px; font-size:15px;"/>mg/l&nbsp;&nbsp;<input id="15c1" type="button" value="Check"/>&nbsp;&nbsp;<input id="15res1" type="button" value="Result" style="visibility:hidden"/></p></br></br></br>
+
+<p style="position:absolute; left:430px; top:75px; border:1px solid black; padding:5px;">FSS = <span class="frac"><sup>(W<sub>6</sub> - W<sub>5</sub>)</sup><span>&frasl;</span><sub>Volume of the sample</sub></span> x 10<sup>6</sup></p>
+
+<p id="15pp2" style="visibility:hidden;"><strong  style="border-bottom:1px double black;">Volatile Suspended Solids, (VSS):</strong></p>
+<p id="p15-5" style="position:absolute; left:0px; visibility:hidden;">Total Suspended Solids (TSS) = </p></br></br></br>
+<p id="p15-7" style="position:absolute; left:0px; visibility:hidden;">Volatile Suspended Solids, (VSS) = <input id="15in2" type="text" style="border:none; border-bottom:1px solid black; width:75px; visibility:hidden; font-size:15px;"/>mg/l&nbsp;&nbsp;<input id="15c2" type="button" value="Check" style="visibility:hidden;"/>&nbsp;&nbsp;<input id="15res2" type="button" value="Result" style="visibility:hidden"/></p></br></br>
+
+<p id="p152" style="position:absolute; left:430px; top:290px; border:1px solid black; padding:5px; visibility:hidden;">VSS = TSS - FSS</p>
+
+<p id="15r1" style="position:absolute; left:310px; top:235px; color:#32CD32; font-size:20px; visibility:hidden;" >&#10004;</p>
+<p id="15w1" style="position:absolute; left:450px; top:235px; color:red; font-size:20px; visibility:hidden;" >&#10008;</p>
+
+<p id="15r2" style="position:absolute; left:330px; top:387.5px; color:#32CD32; font-size:20px; visibility:hidden;" >&#10004;</p>
+<p id="15w2" style="position:absolute; left:510px; top:387.5px; color:red; font-size:20px; visibility:hidden;" >&#10008;</p>
+</div>
+
+<div id="canvas16" class="simsubscreen" style="visibility:hidden;">
+<strong class="incanvas" id="ob"><h3>Inference: </h3></strong>
+<div id="inference" style="position:absolute; left:100px; top:100px; font-size:14px; background-color:grey; color:white; padding:7.5px; border-radius:5px;">
+<p>What is the acceptable range of Total Dissolved Solids in drinking water?</p>
+<input type="radio" name="inf" value="1">&nbsp;1800mg/l - 2400mg/l</br>
+<input type="radio" name="inf" value="2">&nbsp;1200mg/l - 1800mg/l</br>
+<input type="radio" name="inf" value="3">&nbsp;500mg/l - 1200mg/l</br>
+<input type="radio" name="inf" value="4">&nbsp;&lt;500mg/l</br></br>
+<input type="button" value="Submit" onclick="checkInference();"/>
+<p id="ans" style="visibility:hidden;"></p>
+</div>
+<p id="infAns" style="display:none; font-size:16px; font-weight:bold; text-align:justify; width:700px;"></p>
+</div>
+
+<div id="questDiv" style="position:absolute; font-size:14px; background-color:grey; color:white; padding:7.5px; border-radius:5px; visibility:hidden;">
+<p id="q"></p><select id="answer" >
+</select>
+<p id="a"></p>
+</div>
+
+<!-- nextButton -->
+<div id="nav">
+<img id="nextButton" onclick="navNext()" src="images/Next.png" />
+</div>
+
+<!--Blinking Arrow	-->
+<img class ="" id="arrow1" style="visibility:hidden;" src="images/arrow1.png"/>
+
+<div id="copyright"> &copy; 2018 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+</div>
+<script src="../assets/js/iframeResize.js"></script></body>
+</html>

@@ -1,0 +1,42 @@
+[{
+	"question": "The concentration of dissolved solids in water can be determined by Specific conductance.",
+	"answers": {
+		"a": "False",
+		"b": "True"
+	},
+	"correctAnswer": "b"
+}, {
+	"question": "The settleable suspended solids with diameter 0.15 to 0.2mm are generally",
+	"answers": {
+		"a": "Inorganic",
+		"b": "Organic",
+		"c": "Algae",
+		"d": "Fungi"
+	},
+	"correctAnswer": "a"
+}, {
+	"question": "The dissolved solids that impose BOD are _____________ ",
+	"answers": {
+		"a": "Non-volatile solids",
+		"b": "Total solids",
+		"c": "Inorganic solids",
+		"d": "Volatile solids"
+	},
+	"correctAnswer": "d"
+}, {
+	"question": "As per IS Code the acceptable TDS value is",
+	"answers": {
+		"a": "250ppm",
+		"b": "750ppm",
+		"c": "500ppm",
+		"d": "900ppm"
+	},
+	"correctAnswer": "c"
+}, {
+	"question": "The presence of high total solids in water changes the colour and taste of water. ",
+	"answers": {
+		"a": "False",
+		"b": "True"
+	},
+	"correctAnswer": "b"
+}]
