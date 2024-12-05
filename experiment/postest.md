@@ -23,5 +23,5 @@ b. 750ppm<br>
 d. 900ppm<br>
 
 Q 5. The presence of high total solids in water changes the colour and taste of water. <br>
-<b>a. False</b><br>
-b. True<br>
+a. False<br>
+<b>b. True</b><br>
